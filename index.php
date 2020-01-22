@@ -8,6 +8,10 @@
  * the route of our directory they will be taken to the view that we have defined as views/home.html
  */
 
+// start a session - ONLY ever need to put this in our controller (all other pages get by transference)
+session_start();
+
+
 // Turn on error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -85,12 +89,19 @@ $f3->route('GET /order', function() {
 
 // create a route for order #2 (we go here from form1.html with post)
 $f3->route('POST /order2', function() {
+    // var_dump($_POST);
+    // take the post array data and put in session
+    $_SESSION['food'] = $_POST['food'];
     $view = new Template();
     echo $view->render('views/form2.html');
 });
 
 // create a route for order #2 (we want to go to our summary page)
 $f3->route('POST /summary', function() {
+    //var_dump($_POST);
+    // take the post array data and put in session
+    $_SESSION['meal'] = $_POST['meal'];
+
     $view = new Template();
     echo $view->render('views/results.html');
 });
