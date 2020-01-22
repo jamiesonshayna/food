@@ -28,10 +28,16 @@ $f3->route('GET /', function() {
     echo $view->render('views/home.html');
 });
 
-// define another route (not default)
+// define another route for breakfast (not default)
 $f3->route('GET /breakfast', function() {
    $view = new Template();
    echo $view->render('views/breakfast.html');
+});
+
+// define another route for lunch (not default)
+$f3->route('GET /lunch', function() {
+    $view = new Template();
+    echo $view->render('views/lunch.html');
 });
 
 // fun Fat-Free
