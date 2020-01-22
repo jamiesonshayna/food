@@ -34,6 +34,12 @@ $f3->route('GET /breakfast', function() {
    echo $view->render('views/breakfast.html');
 });
 
+// define a sub route for breakfast page called 'buffet'
+$f3->route('GET /breakfast/buffet', function() {
+    $view = new Template();
+    echo $view->render('views/breakfast-buffet.html');
+});
+
 // define another route for lunch (not default)
 $f3->route('GET /lunch', function() {
     $view = new Template();
