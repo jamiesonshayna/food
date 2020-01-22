@@ -1,7 +1,7 @@
 <!--
 @author Shayna Jamieson
 @version 1.0
-URL: http://sjamieson.greenriverdev.com/328/food/views/order.html
+URL: http://sjamieson.greenriverdev.com/328/food/views/form1.html
 Date: January 22, 2020
 -->
 <!doctype html>
@@ -15,11 +15,11 @@ Date: January 22, 2020
 </head>
 <body>
 <h1>Food Order</h1>
-<form>
-    <label for="order">What would you like to order?
-        <input type="text" name="order" id="order">
-        <input type="submit" value="Next>>">
+<form method="post" action="order2">
+    <label for="food">What would you like to order?
+        <input type="text" name="food" id="food">
     </label>
+    <input type="submit" value="Next >>">
 </form>
 </body>
 </html>

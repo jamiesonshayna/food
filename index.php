@@ -80,7 +80,19 @@ $f3->route('GET /@item', function($f3, $params) { // @ is a placeholder
 // define another route called order that displays a form
 $f3->route('GET /order', function() {
     $view = new Template();
-    echo $view->render('views/order.html');
+    echo $view->render('views/form1.html');
+});
+
+// create a route for order #2 (we go here from form1.html with post)
+$f3->route('POST /order2', function() {
+    $view = new Template();
+    echo $view->render('views/form2.html');
+});
+
+// create a route for order #2 (we want to go to our summary page)
+$f3->route('POST /summary', function() {
+    $view = new Template();
+    echo $view->render('views/results.html');
 });
 
 // fun Fat-Free
