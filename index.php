@@ -46,6 +46,16 @@ $f3->route('GET /lunch', function() {
     echo $view->render('views/lunch.html');
 });
 
+// *** NEW *** Define a route that accepts a food parameter
+// here is a route that will accept our value: https://sjamieson.greenriverdev.com/328/food/watermelon
+$f3->route('GET /@item', function($f3, $params) { // @ is a placeholder
+    // f3 is fat free object instantiated above
+    // params are optional and its what we pass (array) (second arg needs 1st put in)
+    //var_dump($params);
+    $item = $params['item'];
+    echo "<h1 style='color: pink;'>You ordered $item</h1>";
+});
+
 // fun Fat-Free
 $f3->run();
 
