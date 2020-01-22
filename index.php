@@ -54,6 +54,27 @@ $f3->route('GET /@item', function($f3, $params) { // @ is a placeholder
     //var_dump($params);
     $item = $params['item'];
     echo "<h1 style='color: pink;'>You ordered $item</h1>";
+
+    // check if the param food is in our 'current stock' and display message
+    $foodsWeServe = array("tacos", "pizza", "lumpia");
+    if(!in_array($item, $foodsWeServe)) {
+        echo "<h3 style='color:green;'>Sorry we don't serve $item</h3>";
+    }
+
+    // test with a switch
+    switch($item) {
+        case 'tacos':
+            echo "<p>We serve tacos on Tuesday!</p>";
+            break;
+        case 'pizza':
+            echo "<p>Pepperoni or veggie?</p>";
+            break;
+        case 'watermelon':
+            echo "<p>Smart choice.</p>";
+            break;
+        default:
+            $f3->error(404); // if none are chosen display a 404 error page
+    }
 });
 
 // fun Fat-Free
