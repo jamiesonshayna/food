@@ -67,7 +67,7 @@ $f3->route('GET /@item', function($f3, $params) { // @ is a placeholder
             echo "<p>We serve tacos on Tuesday!</p>";
             break;
         case 'pizza':
-            echo "<p>Pepperoni or veggie?</p>";
+            $f3->reroute("/lunch");
             break;
         case 'watermelon':
             echo "<p>Smart choice.</p>";
