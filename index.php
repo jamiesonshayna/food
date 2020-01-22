@@ -77,6 +77,12 @@ $f3->route('GET /@item', function($f3, $params) { // @ is a placeholder
     }
 });
 
+// define another route called order that displays a form
+$f3->route('GET /order', function() {
+    $view = new Template();
+    echo $view->render('views/order.html');
+});
+
 // fun Fat-Free
 $f3->run();
 
