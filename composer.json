@@ -1,0 +1,12 @@
+{
+  "name": "sjamieson/328/food",
+  "authors": [
+    {
+      "name": "Shayna Jamieson",
+      "email": "sjamieson2@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
