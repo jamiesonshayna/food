@@ -2,8 +2,8 @@
 /**
  * @author Shayna Jamieson
  * @version 1.0
- * URL: http://sjamieson.greenriverdev.com/328/dating/index.php
- * Date: January 16, 2020
+ * URL: http://sjamieson.greenriverdev.com/328/food/index.php
+ * Date: January 22, 2020
  * Description: This file serves to define a default route. When a user navigates to
  * the route of our directory they will be taken to the view that we have defined as views/home.html
  */
@@ -26,6 +26,12 @@ $f3->route('GET /', function() {
 
     // on the object template we render the home page through this route
     echo $view->render('views/home.html');
+});
+
+// define another route (not default)
+$f3->route('GET /breakfast', function() {
+   $view = new Template();
+   echo $view->render('views/breakfast.html');
 });
 
 // fun Fat-Free
