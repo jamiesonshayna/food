@@ -89,18 +89,25 @@ $f3->route('GET /order', function() {
 
 // create a route for order #2 (we go here from form1.html with post)
 $f3->route('POST /order2', function() {
-    // var_dump($_POST);
     // take the post array data and put in session
     $_SESSION['food'] = $_POST['food'];
     $view = new Template();
     echo $view->render('views/form2.html');
 });
 
-// create a route for order #2 (we want to go to our summary page)
-$f3->route('POST /summary', function() {
-    //var_dump($_POST);
+// create a route for order #3 (we go here from form2.html with post)
+$f3->route('POST /order3', function() {
     // take the post array data and put in session
     $_SESSION['meal'] = $_POST['meal'];
+
+    $view = new Template();
+    echo $view->render('views/form3.html');
+});
+
+// create a route for our order summary page
+$f3->route('POST /summary', function() {
+    // take the post array data and put in session
+    $_SESSION['drink'] = $_POST['drink'];
 
     $view = new Template();
     echo $view->render('views/results.html');
