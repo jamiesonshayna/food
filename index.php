@@ -16,7 +16,8 @@ session_start();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-require("vendor/autoload.php");
+require_once("vendor/autoload.php");
+require_once ("model/validate.php");
 
 // instantiate F3
 $f3 = Base::instance(); // invoke static
@@ -82,13 +83,22 @@ $f3->route('GET /@item', function($f3, $params) { // @ is a placeholder
 });
 
 // define another route called order that displays a form
-$f3->route('GET /order', function() {
+$f3->route('GET|POST /order', function($f3) {
+    // check to see if form has been submitted
+    if(isset($_POST['food'])) {
+        // validate the data
+        $food = $_POST['food'];
+        if(validFood($food)) {
+            $f3->reroute('/order2');
+        }
+    }
+
     $view = new Template();
     echo $view->render('views/form1.html');
 });
 
 // create a route for order #2 (we go here from form1.html with post)
-$f3->route('POST /order2', function($f3) {
+$f3->route('GET|POST /order2', function($f3) {
     // take the post array data and put in session
     $_SESSION['food'] = $_POST['food'];
 
