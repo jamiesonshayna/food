@@ -11,7 +11,10 @@ Date: January 22, 2020
 <form method="post" action="#">
     <label for="food">What would you like to order?
         <input type="text" name="food" id="food">
-    </label>
+    </label><br>
+    <check if="{{ isset(@errors['food']) }}">
+        <span style="color: red; font-size: small">{{ @errors['food'] }}</span><br><br>
+    </check>
     <input type="submit" value="Next >>">
 </form>
 </body>

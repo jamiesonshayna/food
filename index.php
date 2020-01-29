@@ -89,7 +89,13 @@ $f3->route('GET|POST /order', function($f3) {
         // validate the data
         $food = $_POST['food'];
         if(validFood($food)) {
+            // take the post array data and put in session
+            $_SESSION['food'] = $_POST['food'];
+
+            // reroute to our next form with session data set
             $f3->reroute('/order2');
+        } else {
+            $f3->set("errors['food']", "Enter a food");
         }
     }
 
@@ -99,9 +105,6 @@ $f3->route('GET|POST /order', function($f3) {
 
 // create a route for order #2 (we go here from form1.html with post)
 $f3->route('GET|POST /order2', function($f3) {
-    // take the post array data and put in session
-    $_SESSION['food'] = $_POST['food'];
-
     // define meal array to display radio buttons on form 2
     $f3->set('meals', array('breakfast', 'lunch', 'dinner'));
 
