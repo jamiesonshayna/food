@@ -10,9 +10,9 @@ Date: January 22, 2020
 <h1>Food Order</h1>
 <form method="post" action="order3">
     <p>Which meal?<br>
-        <label><input type="radio" name="meal" value="breakfast"></label>Breakfast<br>
-        <label><input type="radio" name="meal" value="lunch"></label>Lunch<br>
-        <label><input type="radio" name="meal" value="dinner"></label>Dinner<br><br>
+        <repeat group="{{ @meals }}" value=" {{ @meal }}">
+            <label><input type="radio" name="meal" value="{{ @meal }}"></label>{{ ucfirst(@meal) }}<br>
+        </repeat>
     </p>
     <input type="submit" value="Next >>">
 </form>

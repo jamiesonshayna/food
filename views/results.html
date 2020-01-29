@@ -9,6 +9,6 @@ Date: January 22, 2020
 <body>
     <h1>Thank you for your order!</h1>
 
-    <h2>You ordered {{ @SESSION.food}} with {{ @SESSION.drink}} for {{ @SESSION.meal}}!</h2>
+    <h2>You ordered {{ @SESSION.food}} with {{ implode(", ", @SESSION.drinks) }} for {{ @SESSION.meal}}!</h2>
 </body>
 </html>

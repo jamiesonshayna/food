@@ -88,17 +88,24 @@ $f3->route('GET /order', function() {
 });
 
 // create a route for order #2 (we go here from form1.html with post)
-$f3->route('POST /order2', function() {
+$f3->route('POST /order2', function($f3) {
     // take the post array data and put in session
     $_SESSION['food'] = $_POST['food'];
+
+    // define meal array to display radio buttons on form 2
+    $f3->set('meals', array('breakfast', 'lunch', 'dinner'));
+
     $view = new Template();
     echo $view->render('views/form2.html');
 });
 
 // create a route for order #3 (we go here from form2.html with post)
-$f3->route('POST /order3', function() {
+$f3->route('POST /order3', function($f3) {
     // take the post array data and put in session
     $_SESSION['meal'] = $_POST['meal'];
+
+    // create a drinks array to display the select options
+    $f3->set('drinks', array('vodka', 'whiskey', 'gin', 'tequila'));
 
     $view = new Template();
     echo $view->render('views/form3.html');
@@ -106,8 +113,8 @@ $f3->route('POST /order3', function() {
 
 // create a route for our order summary page
 $f3->route('POST /summary', function() {
-    // take the post array data and put in session
-    $_SESSION['drink'] = $_POST['drink'];
+    // get the values of the post array
+    $_SESSION['drinks'] = $_POST['drinks'];
 
     $view = new Template();
     echo $view->render('views/results.html');

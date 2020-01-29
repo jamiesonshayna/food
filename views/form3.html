@@ -10,11 +10,9 @@ Date: January 22, 2020
 <h1>Food Order</h1>
 <form method="post" action="summary">
     <p>Select a Drink</p>
-    <select name="drink">
-        <option value="vodka">Vodka</option>
-        <option value="whiskey">Whiskey</option>
-        <option value="gin">Gin</option>
-    </select><br><br>
+        <repeat group="{{ @drinks }}" value="{{ @drink }}">
+            <label><input type="checkbox" name="drinks[]" value="{{ @drink }}">{{ ucfirst(@drink) }}</label><br>
+        </repeat><br>
     <input type="submit" value="Next >>">
 </form>
 </body>
