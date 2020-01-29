@@ -9,6 +9,9 @@ Date: January 22, 2020
 <body>
     <h1>Thank you for your order!</h1>
 
-    <h2>You ordered {{ @SESSION.food}} with {{ implode(", ", @SESSION.drinks) }} for {{ @SESSION.meal}}!</h2>
+    <h2>You ordered {{ @SESSION.food}} for {{ @SESSION.meal}}!</h2>
+    <check if="{{ isset(@SESSION.drinks) }}">
+        <h2>Drink(s): {{ implode(", ", @SESSION.drinks) }}</h2>
+    </check>
 </body>
 </html>
